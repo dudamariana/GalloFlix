@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GalloFlix.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230511131942_criar-banco")]
+    [Migration("20230518131302_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -170,6 +170,29 @@ namespace GalloFlix.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a3db6357-13f0-44f4-a1b4-826f866c4f39",
+                            ConcurrencyStamp = "8641eaa3-a512-4d1d-9616-2b8fa9ee95e5",
+                            Name = "Administrador",
+                            NormalizedName = "ADMINISTRADOR"
+                        },
+                        new
+                        {
+                            Id = "d8f86496-0fa4-4e0c-8d10-5260a8dde32a",
+                            ConcurrencyStamp = "6abadac1-a905-4470-be31-43e1fdd087a2",
+                            Name = "Moderador",
+                            NormalizedName = "MODERADOR"
+                        },
+                        new
+                        {
+                            Id = "428614b9-85b1-4253-91c5-70ccc9899ffe",
+                            ConcurrencyStamp = "52e2f22e-be2c-4d20-ac53-e425a1d78502",
+                            Name = "Usuário",
+                            NormalizedName = "USUÁRIO"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -323,6 +346,13 @@ namespace GalloFlix.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "669a227a-2eb6-41fc-8aca-8aa64b391600",
+                            RoleId = "a3db6357-13f0-44f4-a1b4-826f866c4f39"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -361,6 +391,28 @@ namespace GalloFlix.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.HasDiscriminator().HasValue("AppUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "669a227a-2eb6-41fc-8aca-8aa64b391600",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6c86f75c-2037-4d7e-aeea-29a7c17a4a79",
+                            Email = "mariaeduardabotura@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MARIAEDUARDABOTURA@GMAIL.COM",
+                            NormalizedUserName = "DUDAMARIANA",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBSjJW5BPO21zd8f7yNvHY2iFpF0U/AIFcscEDDw+oQyIG3F5e9Zv3sDL+PB289U2A==",
+                            PhoneNumber = "14981395114",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "0a295940-8e33-4ba0-abcd-e605dd77b184",
+                            TwoFactorEnabled = false,
+                            UserName = "dudamariana",
+                            DateOfBirth = new DateTime(2005, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Maria Eduarda Botura",
+                            ProfilePicture = "/img/user/avatar.png"
+                        });
                 });
 
             modelBuilder.Entity("GalloFlix.Models.MovieComment", b =>
