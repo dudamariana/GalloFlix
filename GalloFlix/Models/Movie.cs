@@ -36,7 +36,7 @@ namespace GalloFlix.Models;
 
         [Display(Name = "Classificação Etária")]
         [Required(ErrorMessage = "A Classificação Etária é obrigatória")]
-        public byte AgeReting {get; set; }
+        public byte AgeRating {get; set; }
 
         [StringLength(200)]
         [Display(Name = "Foto")]
