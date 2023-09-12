@@ -23,16 +23,6 @@ public class HomeController : Controller
         return View(movies);
     }
 
-        public IActionResult Movie(int? id)
-    {
-        var movie = _context.Movies
-            .Where(m => m.Id == id)
-            .Include(m => m.Genres)
-            .ThenInclude(g => g.Genre)
-            .SingleOrDefault();
-        return View(movie);
-    }
-
     public IActionResult Privacy()
     {
         return View();
